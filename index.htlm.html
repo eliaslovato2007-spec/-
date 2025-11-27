@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tattoo Riffs | Turnos para tatuajes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+    }
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 5px 0 0;
+      color: #bbb;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: #151515;
+      position: sticky;
+      top: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(180deg, #000, #111);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #e10600;
+      color: #fff;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #161616;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.4);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 500px;
+    }
+    input, textarea, select {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #e10600;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TATTOO RIFFS</h1>
+    <p>Turnos para tatuajes • Arte en piel</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#galeria">Trabajos</a>
+    <a href="#sobre">Sobre mí</a>
+    <a href="#turnos">Turnos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio" class="hero">
+    <h2>Tatuajes con actitud</h2>
+    <p>Reservá tu turno de forma fácil y rápida.</p>
+    <a class="btn" href="https://wa.me/5490000000000" target="_blank">Reservar por WhatsApp</a>
+  </section>
+
+  <section id="galeria">
+    <h2>Trabajos recientes</h2>
+    <div class="grid">
+      <div class="card"><img src="https://placehold.co/400x400" /><p>Flash tradicional</p></div>
+      <div class="card"><img src="https://placehold.co/400x400" /><p>Blackwork</p></div>
+      <div class="card"><img src="https://placehold.co/400x400" /><p>Lettering</p></div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy tatuador independiente bajo el nombre <strong>Tattoo Riffs</strong>. Trabajo con turnos previos
+      y cada diseño es personalizado. Mi enfoque es la creatividad, el detalle y el respeto por cada cliente.
+    </p>
+  </section>
+
+  <section id="turnos">
+    <h2>Solicitar turno</h2>
+    <form id="turnoForm">
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="tel" id="telefono" placeholder="WhatsApp" required />
+      <input type="date" id="fecha" required />
+      <select id="estilo" required>
+        <option value="">Estilo de tattoo</option>
+        <option>oriental</option>
+        <option>cartoon</option>
+        <option>Blackwork</option>
+        <option>Otro</option>
+      </select>
+      <textarea id="detalle" rows="4" placeholder="Contame tu idea..."></textarea>
+      <button type="submit">Enviar solicitud</button>
+    </form>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Instagram: @tattooriffs</p>
+    <p>WhatsApp: +54 9 00 0000 0000</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Tattoo Riffs • Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('turnoForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const fecha = document.getElementById('fecha').value;
+      const estilo = document.getElementById('estilo').value;
+      const detalle = document.getElementById('detalle').value;
+
+      const mensaje = `Hola! Quiero un turno para tatuaje.%0A%0ANombre: ${nombre}%0AWhatsApp: ${telefono}%0AFecha: ${fecha}%0AEstilo: ${estilo}%0AIdea: ${detalle}`;
+
+      const whatsappURL = `https://wa.me/5490000000000?text=${mensaje}`;
+
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+
+</body>
+</html>
